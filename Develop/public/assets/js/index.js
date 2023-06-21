@@ -53,7 +53,7 @@ const deleteNote = (id) =>
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
-  if (activeNote.id) {
+  if (activeNote.note_id) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
@@ -69,7 +69,7 @@ const renderActiveNote = () => {
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
-    text: noteText.value,
+    text: noteText.value
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
@@ -99,6 +99,7 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
+  // console.log(activeNote);
   renderActiveNote();
 };
 
@@ -136,6 +137,7 @@ const renderNoteList = async (notes) => {
     spanEl.addEventListener('click', handleNoteView);
 
     liEl.append(spanEl);
+    // console.log(spanEl);
 
     if (delBtn) {
       const delBtnEl = document.createElement('i');
@@ -179,5 +181,5 @@ if (window.location.pathname === '/notes') {
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
-
+// noteList.addEventListener('click', handleNoteView);
 getAndRenderNotes();
