@@ -12,7 +12,7 @@ In this challenge I created a note taking application utilizing some starter cod
 
 # Deployed Heroku Link
 
-https://note-taker-eqm-fa69ec4c5602.herokuapp.com/notes
+https://note-taker-eqm-fa69ec4c5602.herokuapp.com
 
 # Github repository
 
